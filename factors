@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""Factorize as many numbers as possible into a product of two smaller numbers."""
+"""Factorize as many numbers as possible
+into a product of two smaller numbers.
+"""
 import sys
 
 with open(sys.argv[1], "r") as fp:
