@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """find these two primes p and q of given n, n = p x q"""
 import sys
-import math
+from math import ceil, sqrt
 
 with open(sys.argv[1], "r") as fp:
     n = int(fp.readline())
@@ -10,11 +10,12 @@ with open(sys.argv[1], "r") as fp:
         print("{}={}*{}".format(n, int(n / 2), 2))
     # value is odd number
     else:
-        a = int(math.sqrt(n)) + 1
-        b2 = int(a * a - n)
-        b = int(math.sqrt(b2))
-        while b ** 2 != int(b2):
-            a += 1
-            b2 = a * a - n
-        print("{}={}*{}".format(n, int(a + math.sqrt(b2)),
-                                int(a - math.sqrt(b2))))
+        a = int(ceil(sqrt(n)))
+        while (True):
+            b1 = a * a - n
+            b = int(sqrt(b1))
+            if(b * b == b1):
+                break
+            else:
+                a += 1
+        print("{}={}*{}".format(n, a - b, a + b))
